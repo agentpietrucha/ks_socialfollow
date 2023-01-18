@@ -36,8 +36,10 @@ class Ps_Socialfollow extends Module implements WidgetInterface
         'VIMEO',
         'INSTAGRAM',
         'LINKEDIN',
+        'TIKTOK',
         'DISCORD',
     ];
+
     private $templateFile;
 
     public function __construct()
@@ -69,6 +71,7 @@ class Ps_Socialfollow extends Module implements WidgetInterface
             Configuration::updateValue('BLOCKSOCIAL_VIMEO', '') &&
             Configuration::updateValue('BLOCKSOCIAL_INSTAGRAM', '') &&
             Configuration::updateValue('BLOCKSOCIAL_LINKEDIN', '') &&
+            Configuration::updateValue('BLOCKSOCIAL_TIKTOK', '') &&
             Configuration::updateValue('BLOCKSOCIAL_DISCORD', '') &&
             $this->registerHook('actionFrontControllerSetMedia') &&
             $this->registerHook('displayFooter');
@@ -84,6 +87,7 @@ class Ps_Socialfollow extends Module implements WidgetInterface
             Configuration::deleteByName('BLOCKSOCIAL_VIMEO') &&
             Configuration::deleteByName('BLOCKSOCIAL_INSTAGRAM') &&
             Configuration::deleteByName('BLOCKSOCIAL_LINKEDIN') &&
+            Configuration::deleteByName('BLOCKSOCIAL_TIKTOK') &&
             Configuration::deleteByName('BLOCKSOCIAL_DISCORD') &&
             parent::uninstall();
     }
@@ -184,6 +188,13 @@ class Ps_Socialfollow extends Module implements WidgetInterface
                         'label' => $this->trans('LinkedIn URL:', [], 'Modules.Socialfollow.Admin'),
                         'name' => 'BLOCKSOCIAL_LINKEDIN',
                         'desc' => $this->trans('Your official LinkedIn account.', [], 'Modules.Socialfollow.Admin'),
+                    ],
+                    [
+                        'type' => 'text',
+                        'lang' => true,
+                        'label' => $this->trans('TikTok URL:', [], 'Modules.Socialfollow.Admin'),
+                        'name' => 'BLOCKSOCIAL_TIKTOK',
+                        'desc' => $this->trans('Your official TikTok account.', [], 'Modules.Socialfollow.Admin'),
                     ],
                     [
                         'type' => 'text',
@@ -334,6 +345,15 @@ class Ps_Socialfollow extends Module implements WidgetInterface
                 'url' => $sf_linkedin,
             ];
         }
+
+        if ($sf_tiktok = Configuration::get('BLOCKSOCIAL_TIKTOK', $id_lang)) {
+            $social_links['tiktok'] = [
+                'label' => $this->trans('TikTok', [], 'Modules.Socialfollow.Shop'),
+                'class' => 'tiktok',
+                'url' => $sf_tiktok,
+            ];
+        }
+
         if ($sf_discord = Configuration::get('BLOCKSOCIAL_DISCORD', $id_lang)) {
             $social_links['discord'] = [
                 'label' => $this->trans('Discord', [], 'Modules.Socialfollow.Shop'),
