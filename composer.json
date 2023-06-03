@@ -1,12 +1,11 @@
 {
-  "name": "prestashop/ps_socialfollow",
-  "description": "PrestaShop module ps_socialfollow",
-  "homepage": "https://github.com/PrestaShop/ps_socialfollow",
+  "name": "karol_sawicki/ps_socialfollow",
+  "description": "Karol Sawicki prestaShop module ps_socialfollow",
   "license": "AFL-3.0",
   "authors": [
     {
-      "name": "PrestaShop SA",
-      "email": "contact@prestashop.com"
+      "name": "Karol Sawicki",
+      "email": "agentpietrucha@gmail.com"
     }
   ],
   "require": {
