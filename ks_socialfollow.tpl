@@ -17,8 +17,8 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 
-{block name='ps_social_follow'}
-  <div class="ps-social-follow">
+{block name='ks_social_follow'}
+  <div class="ks-social-follow">
     <h4>{l s='Follow us' d='Modules.Socialfollow.Shop'}</h4>
     <ul>
       {foreach from=$social_links item='social_link'}
